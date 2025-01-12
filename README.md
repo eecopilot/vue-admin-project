@@ -37,3 +37,9 @@ pnpm install -D husky
 
 npx husky-init
 ```
+
+五、集成element-plus
+
+```
+pnpm install element-plus @element-plus/icons-vue
+```
