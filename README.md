@@ -43,3 +43,13 @@ npx husky-init
 ```
 pnpm install element-plus @element-plus/icons-vue
 ```
+
+六、 环境变量
+
+3种环境变量文件
+
+七、加入svg
+
+```
+pnpm install vite-plugin-svg-icons -D
+```
