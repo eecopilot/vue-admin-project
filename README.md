@@ -53,3 +53,9 @@ pnpm install element-plus @element-plus/icons-vue
 ```
 pnpm install vite-plugin-svg-icons -D
 ```
+
+八、 Mock数据
+
+```
+pnpm install -D vite-plugin-mock mockjs
+```

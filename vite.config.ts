@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 //引入svg需要用到插件
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+//mock插件提供方法
+import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -16,6 +18,10 @@ export default defineConfig(({ command, mode }) => {
       createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
         symbolId: 'icon-[dir]-[name]',
+      }),
+      viteMockServe({
+        mockPath: './mock',
+        enable: true,
       }),
     ],
     resolve: {
