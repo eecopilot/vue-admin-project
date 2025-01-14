@@ -13,7 +13,7 @@ func()
   <div class="test">test</div>
   <div class="test2">test2</div>
   <div>
-    <svg><use xlink:href="#icon-phone" fill="blue"></use></svg>
+    <svg-icon name="phone" />
   </div>
 </template>
 
