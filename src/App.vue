@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { login } from './api/user'
 let msg = 'Hello Vite + Vue 3!'
 console.log(msg)
 
@@ -7,6 +9,15 @@ const func = () => {
 }
 
 func()
+
+onMounted(async () => {
+  console.log('mounted')
+  const logininfo = await login({
+    username: 'admin',
+    password: '111111',
+  })
+  console.log(logininfo)
+})
 </script>
 
 <template>
