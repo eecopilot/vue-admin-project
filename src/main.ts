@@ -11,6 +11,8 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'virtual:svg-icons-register'
 // 引入全局组件
 import GlobalComponents from '@/components/index'
+import router from '@/router'
+
 //获取应用实例对象
 const app = createApp(App)
 //安装element-plus插件
@@ -19,5 +21,6 @@ app.use(ElementPlus, {
 })
 //挂载自定义组件
 app.use(GlobalComponents)
+app.use(router)
 
 app.mount('#app')
