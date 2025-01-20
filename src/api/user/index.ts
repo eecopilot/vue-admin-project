@@ -4,6 +4,7 @@ import type {
   loginResponseData,
   userInfoReponseData,
 } from './type'
+
 enum API {
   LOGIN_URL = '/user/login',
   USERINFO_URL = '/user/info',

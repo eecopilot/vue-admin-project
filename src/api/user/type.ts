@@ -10,7 +10,9 @@ export interface ResponseData {
 }
 // 定义获取用户信息接口返回类型
 export interface loginResponseData extends ResponseData {
-  data: string
+  data: {
+    token: string
+  }
 }
 export interface userInfoReponseData extends ResponseData {
   data: {
