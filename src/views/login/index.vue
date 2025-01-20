@@ -3,7 +3,12 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form class="login-form" ref="loginForms">
+        <el-form
+          class="login-form"
+          ref="loginForms"
+          :rules="rules"
+          :model="state"
+        >
           <h1>Hello</h1>
           <h2>欢迎来到管理后台</h2>
           <el-form-item prop="username">
@@ -47,8 +52,11 @@ const state = reactive<LoginParams>({
   username: '',
   password: '',
 })
+let loginForms = ref()
 const loading = ref(false)
 const login = async () => {
+  // 校验表单
+  await loginForms.value.validate()
   try {
     loading.value = true
     const res = await userStore.login(state)
@@ -71,6 +79,29 @@ const login = async () => {
     console.log(error)
   }
   loading.value = false
+}
+
+//自定义校验规则函数
+const validatorUserName = (_rule: any, value: any, callback: any) => {
+  if (value.length >= 5) {
+    callback()
+  } else {
+    callback(new Error('账号长度至少五位'))
+  }
+}
+
+const validatorPassword = (_rule: any, value: any, callback: any) => {
+  if (value.length >= 6) {
+    callback()
+  } else {
+    callback(new Error('密码长度至少六位'))
+  }
+}
+
+//定义表单校验需要配置对象
+const rules = {
+  username: [{ trigger: 'change', validator: validatorUserName }],
+  password: [{ trigger: 'change', validator: validatorPassword }],
 }
 </script>
 
