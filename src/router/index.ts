@@ -1,27 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const routes = [
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import('../views/login/index.vue'),
-  },
-  {
-    path: '/',
-    name: 'Home',
-    component: () => import('../layout/index.vue'),
-  },
-  {
-    path: '/404',
-    name: '404',
-    component: () => import('../views/404/index.vue'),
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/404',
-    name: 'NotFound',
-  },
-]
+import { routes } from './routes'
 
 const router = createRouter({
   history: createWebHistory(),

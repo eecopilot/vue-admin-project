@@ -2,9 +2,12 @@ import { login } from '@/api/user'
 import { defineStore } from 'pinia'
 import type { LoginParams, loginResponseData } from '@/api/user/type'
 import type { UserState } from './types'
+import { routes } from '@/router/routes'
+
 const useUserStore = defineStore('User', {
   state: (): UserState => ({
     token: localStorage.getItem('token') || '',
+    menuRoutes: routes, // 菜单路由
     userInfo: {
       name: '',
       age: 0,

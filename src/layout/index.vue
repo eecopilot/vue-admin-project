@@ -2,16 +2,26 @@
   <div class="layout-container">
     <div class="layout-slider">
       <Logo />
+      <el-scrollbar class="scrollbar">
+        <el-menu background-color="#001529" text-color="#fff">
+          <SideMenu :menuList="userStore.menuRoutes" />
+        </el-menu>
+      </el-scrollbar>
     </div>
     <div class="layout-tabbar">tarbar</div>
     <div class="layout-content">
-      <p style="height: 10000px; background-color: beige">ddd</p>
+      <MainContent />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Logo from './components/Logo.vue'
+import SideMenu from './components/menu/index.vue'
+import MainContent from './components/MainContent/index.vue'
+// 引入useUserStore
+import useUserStore from '@/store/modules/user'
+const userStore = useUserStore()
 </script>
 
 <style lang="scss" scoped>
@@ -24,6 +34,11 @@ import Logo from './components/Logo.vue'
     width: styles.$base-menu-width;
     height: 100vh;
     background-color: styles.$base-menu-background;
+    .scrollbar {
+      width: 100%;
+      height: calc(100% - styles.$base-tabbar-height);
+      color: white;
+    }
   }
   .layout-tabbar {
     position: fixed;
