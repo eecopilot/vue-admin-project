@@ -1,4 +1,4 @@
-import { login } from '@/api/user'
+import { login, logout } from '@/api/user'
 import { defineStore } from 'pinia'
 import type { LoginParams, loginResponseData } from '@/api/user/type'
 import type { UserState } from './types'
@@ -8,10 +8,8 @@ const useUserStore = defineStore('User', {
   state: (): UserState => ({
     token: localStorage.getItem('token') || '',
     menuRoutes: routes, // 菜单路由
-    userInfo: {
-      name: '',
-      age: 0,
-    },
+    username: '',
+    avatar: '',
   }),
   actions: {
     async login(state: LoginParams) {
@@ -20,6 +18,14 @@ const useUserStore = defineStore('User', {
         this.token = res.data.token
         localStorage.setItem('token', res.data.token)
       }
+      return res
+    },
+    async userLogout() {
+      const res = await logout()
+      this.token = ''
+      this.username = ''
+      this.avatar = ''
+      localStorage.removeItem('token')
       return res
     },
   },

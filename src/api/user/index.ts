@@ -8,6 +8,7 @@ import type {
 enum API {
   LOGIN_URL = '/user/login',
   USERINFO_URL = '/user/info',
+  LOGOUT_URL = '/user/logout',
 }
 
 export const login = (data: LoginParams) => {
@@ -17,3 +18,5 @@ export const login = (data: LoginParams) => {
 export const getUserInfo = () => {
   return service.get<any, userInfoReponseData>(API.USERINFO_URL)
 }
+
+export const logout = () => service.post<any, any>(API.LOGOUT_URL)
