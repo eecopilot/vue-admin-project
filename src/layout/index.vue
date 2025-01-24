@@ -30,10 +30,10 @@
 
 <script setup lang="ts">
 import Logo from './components/Logo.vue'
-import SideMenu from './components/menu/index.vue'
+import SideMenu from './components/Menu/index.vue'
 import MainContent from './components/MainContent/index.vue'
 // tabbar
-import Tabbar from './components/tabbar/index.vue'
+import Tabbar from './components/Tabbar/index.vue'
 // 引入router
 import { useRoute } from 'vue-router'
 import useLayOutSettingStore from '@/store/modules/setting'

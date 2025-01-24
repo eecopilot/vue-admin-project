@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import BreadCrumb from './breadcrumb/index.vue'
+import BreadCrumb from './Breadcrumb/index.vue'
 import Setting from './Setting.vue'
 </script>
 
