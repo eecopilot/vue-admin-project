@@ -4,7 +4,7 @@
       <Logo />
       <el-scrollbar class="scrollbar">
         <el-menu
-          :collapse="LayOutSettingStore.fold ? true : false"
+          :collapse="LayOutSettingStore.fold"
           :default-active="route.path"
           background-color="#001529"
           text-color="#fff"
@@ -15,13 +15,13 @@
     </div>
     <div
       class="layout-tabbar"
-      :class="{ fold: LayOutSettingStore.fold ? true : false }"
+      :class="{ fold: LayOutSettingStore.fold }"
     >
       <Tabbar />
     </div>
     <div
       class="layout-content"
-      :class="{ fold: LayOutSettingStore.fold ? true : false }"
+      :class="{ fold: LayOutSettingStore.fold }"
     >
       <MainContent />
     </div>
