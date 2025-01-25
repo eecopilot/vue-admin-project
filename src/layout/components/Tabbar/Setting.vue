@@ -61,7 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 //获取用户相关的小仓库
 import useUserStore from '@/store/modules/user'
@@ -92,12 +92,7 @@ const fullScreen = () => {
     document.exitFullscreen()
   }
 }
-// 如果userStore没有值，则请求userinfo接口
-onMounted(() => {
-  if (!userStore.username) {
-    userStore.userInfo()
-  }
-})
+
 //退出登录点击回调
 const logout = async () => {
   //第一件事情:需要向服务器发请求[退出登录接口]******

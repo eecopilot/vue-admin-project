@@ -24,6 +24,7 @@ app.use(ElementPlus, {
 //挂载自定义组件
 app.use(GlobalComponents)
 app.use(router)
+import './permisstion'
 //挂载pinia
 app.use(store)
 
