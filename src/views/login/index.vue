@@ -44,15 +44,20 @@ import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import useUserStore from '@/store/modules/user'
 import type { LoginParams } from '@/api/user/type'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ElNotification } from 'element-plus'
 const userStore = useUserStore()
-const router = useRouter()
+const $router = useRouter()
 const state = reactive<LoginParams>({
   username: '',
   password: '',
 })
 let loginForms = ref()
+//获取路由器
+
+//路由对象
+let $route = useRoute()
+
 const loading = ref(false)
 const login = async () => {
   // 校验表单
@@ -60,9 +65,11 @@ const login = async () => {
   try {
     loading.value = true
     const res = await userStore.login(state)
+    let redirect: any = $route.query.redirect
+
     if (res.code === 200) {
       console.log('登录成功')
-      router.push('/')
+      $router.push({ path: redirect || '/' })
       ElNotification({
         title: '登录成功',
         message: '欢迎回来',
