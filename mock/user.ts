@@ -68,4 +68,11 @@ export default [
       return { code: 200, data: { ...checkUser } }
     },
   },
+  {
+    url: '/api/user/logout',
+    method: 'post',
+    response: () => {
+      return { code: 200, data: { message: '退出登录成功' } }
+    },
+  },
 ]
