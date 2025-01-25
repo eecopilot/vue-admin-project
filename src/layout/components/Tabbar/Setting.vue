@@ -71,7 +71,7 @@ let layoutSettingStore = useLayOutSettingStore()
 let userStore = useUserStore()
 //获取路由器对象
 let $router = useRouter()
-//获取路由对向
+//获取路由对象
 let $route = useRoute()
 //收集开关的数据
 let dark = ref<boolean>(false)

@@ -1,6 +1,10 @@
-import { login, logout } from '@/api/user'
+import { login, logout, getUserInfo } from '@/api/user'
 import { defineStore } from 'pinia'
-import type { LoginParams, loginResponseData } from '@/api/user/type'
+import type {
+  LoginParams,
+  loginResponseData,
+  userInfoReponseData,
+} from '@/api/user/type'
 import type { UserState } from './types'
 import { routes } from '@/router/routes'
 
@@ -19,6 +23,14 @@ const useUserStore = defineStore('User', {
         localStorage.setItem('token', res.data.token)
       }
       return res
+    },
+    async userInfo() {
+      const res: userInfoReponseData = await getUserInfo()
+      if (res.code === 200) {
+        console.log(res.data)
+        this.username = res.data.username
+        this.avatar = res.data.avatar
+      }
     },
     async userLogout() {
       const res = await logout()
