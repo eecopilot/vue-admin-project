@@ -59,3 +59,6 @@ pnpm install vite-plugin-svg-icons -D
 ```
 pnpm install -D vite-plugin-mock mockjs
 ```
+
+半成品预览
+![图片](https://cdn.jsdelivr.net/gh/eecopilot/cdn@v1.3/github/1747281065903.jpg)
